@@ -1,0 +1,1328 @@
+object FormSQLite: TFormSQLite
+  Left = 828
+  Height = 513
+  Top = 218
+  Width = 803
+  Caption = 'FormSQLite'
+  ClientHeight = 513
+  ClientWidth = 803
+  OnActivate = FormActivate
+  LCLVersion = '1.0.4.0'
+  object MemoLOG: TMemo
+    Left = 0
+    Height = 463
+    Top = 50
+    Width = 803
+    Align = alClient
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Courier New'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    ParentFont = False
+    ScrollBars = ssAutoBoth
+    TabOrder = 0
+    WordWrap = False
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 803
+    Align = alTop
+    TabOrder = 1
+  end
+  object cnx: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'E:\temp\lazarusScraping\scr\eleScrap.db3'
+    KeepConnection = True
+    LogEvents = []
+    Options = []
+    left = 24
+    top = 80
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = cnx
+    left = 64
+    top = 112
+  end
+  object qdsURLs: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end    
+      item
+        Name = 'URL'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end    
+      item
+        Name = 'ELE_TYPE'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'ELE_DATE'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IS_DATA'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'ID_PARENT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELETTORI'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'VOTANTI'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NULLE'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DI_CUI_BIANCHE'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TITLE'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end>
+    BeforeOpen = qdsURLsBeforeOpen
+    OnCalcFields = qdsURLsCalcFields
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'SELECT * FROM ELECTION_URLS'
+      'where ID_PARENT = :ID_PARENT'
+      'order by ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID_PARENT'
+        ParamType = ptInput
+      end>
+    left = 216
+    top = 56
+    object qdsURLsID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qdsURLsDSCR: TStringField
+      DisplayWidth = 512
+      FieldKind = fkData
+      FieldName = 'DSCR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 512
+    end
+    object qdsURLsURL: TStringField
+      DisplayWidth = 512
+      FieldKind = fkData
+      FieldName = 'URL'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 512
+    end
+    object qdsURLsELE_TYPE: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'ELE_TYPE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object qdsURLsELE_DATE: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ELE_DATE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qdsURLsIS_DATA: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'IS_DATA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object qdsURLsID_PARENT: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID_PARENT'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qdsURLssEleDate1: TStringField
+      DisplayWidth = 10
+      FieldKind = fkCalculated
+      FieldName = 'sEleDate'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object qdsURLsELETTORI: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ELETTORI'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qdsURLsVOTANTI: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VOTANTI'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qdsURLsNULLE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NULLE'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qdsURLsDI_CUI_BIANCHE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DI_CUI_BIANCHE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qdsURLsTITLE: TStringField
+      DisplayWidth = 512
+      FieldKind = fkData
+      FieldName = 'TITLE'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 512
+    end
+  end
+  object SQLQueryUp: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'URL'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_TYPE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_DATE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IS_DATA'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_PARENT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'SELECT * FROM ELECTION_URLS'
+      'where ID = :ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptInput
+      end>
+    left = 392
+    top = 56
+    object SQLQuery1ID1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1DSCR1: TMemoField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DSCR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+      Transliterate = False
+    end
+    object SQLQuery1URL1: TMemoField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'URL'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+      Transliterate = False
+    end
+    object SQLQuery1ELE_TYPE1: TMemoField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ELE_TYPE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+      Transliterate = False
+    end
+    object SQLQuery1ELE_DATE1: TMemoField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ELE_DATE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+      Transliterate = False
+    end
+    object SQLQuery1IS_DATA1: TMemoField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IS_DATA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+      Transliterate = False
+    end
+    object SQLQuery1ID_PARENT1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID_PARENT'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1descrizione2: TStringField
+      DisplayWidth = 64
+      FieldKind = fkCalculated
+      FieldName = 'descrizione'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 64
+    end
+    object SQLQuery1dataElezione2: TDateField
+      DisplayWidth = 10
+      FieldKind = fkCalculated
+      FieldName = 'dataElezione'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qdsInsertUrl: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'URL'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_TYPE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_DATE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IS_DATA'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_PARENT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'INSERT INTO ELECTION_URLS ('
+      '  DSCR     ,'
+      '  URL      ,'
+      '  ELE_TYPE ,'
+      '  ELE_DATE ,'
+      '  IS_DATA  ,'
+      '  TITLE    ,'
+      '  ELETTORI ,'
+      '  VOTANTI  ,'
+      '  NULLE    ,'
+      '  DI_CUI_BIANCHE,'
+      '  ID_PARENT'
+      ') values ('
+      '  :DSCR     ,'
+      '  :URL      ,'
+      '  :ELE_TYPE ,'
+      '  :ELE_DATE ,'
+      '  :IS_DATA  ,'
+      '  :TITLE    ,'
+      '  :ELETTORI ,'
+      '  :VOTANTI  ,'
+      '  :NULLE    ,'
+      '  :DI_CUI_BIANCHE,'
+      ' :ID_PARENT'
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'DSCR'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'URL'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ELE_TYPE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ELE_DATE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IS_DATA'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TITLE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ELETTORI'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'VOTANTI'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NULLE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DI_CUI_BIANCHE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID_PARENT'
+        ParamType = ptInput
+      end>
+    left = 64
+    top = 296
+  end
+  object qdsFindEleUrlsByURL: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'URL'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_TYPE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_DATE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IS_DATA'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_PARENT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from ELECTION_URLS where URL=:URL'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'URL'
+        ParamType = ptInput
+      end>
+    left = 128
+    top = 312
+  end
+  object qdsFindEleUrlsByID: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'URL'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_TYPE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_DATE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IS_DATA'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_PARENT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from ELECTION_URLS where ID=:ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptInput
+      end>
+    left = 128
+    top = 368
+  end
+  object qdsFindEleUrlsByID_PARENT: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'URL'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_TYPE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_DATE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IS_DATA'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_PARENT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from ELECTION_URLS where ID_PARENT=:ID_PARENT'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID_PARENT'
+        ParamType = ptInput
+      end>
+    left = 128
+    top = 424
+  end
+  object qdsUpdateUrl: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'URL'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_TYPE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_DATE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IS_DATA'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_PARENT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'UPDATE ELECTION_URLS SET'
+      '  ID_PARENT = :ID_PARENT,'
+      '  DSCR      = :DSCR     ,'
+      '  URL       = :URL      ,'
+      '  ELE_TYPE  = :ELE_TYPE ,'
+      '  ELE_DATE  = :ELE_DATE ,'
+      '  IS_DATA   = :IS_DATA  ,'
+      '  TITLE     = :TITLE    ,'
+      '  ELETTORI  = :ELETTORI ,'
+      '  VOTANTI   = :VOTANTI  ,'
+      '  NULLE     = :NULLE    ,'
+      '  DI_CUI_BIANCHE = :DI_CUI_BIANCHE'
+      'WHERE ID = :ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID_PARENT'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DSCR'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'URL'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ELE_TYPE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ELE_DATE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IS_DATA'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TITLE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ELETTORI'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'VOTANTI'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NULLE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DI_CUI_BIANCHE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptInput
+      end>
+    left = 224
+    top = 296
+  end
+  object qdsInsertData: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'URL'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_TYPE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_DATE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IS_DATA'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_PARENT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'INSERT INTO ELECTION_DATA ('
+      '  DSCR     ,'
+      '  CAND_URL ,'
+      '  VOTI     ,'
+      '  ID_URL'
+      ') values ('
+      '  :DSCR     ,'
+      '  :CAND_URL ,'
+      '  :VOTI     ,'
+      '  :ID_URL'
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'DSCR'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CAND_URL'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'VOTI'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID_URL'
+        ParamType = ptInput
+      end>
+    left = 392
+    top = 304
+  end
+  object qdsFindEleDataByID_URL_DSCR: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'URL'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_TYPE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_DATE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IS_DATA'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_PARENT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from ELECTION_DATA'
+      'where (ID_URL=:ID_URL) and (DSCR=:DSCR)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID_URL'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DSCR'
+        ParamType = ptInput
+      end>
+    left = 448
+    top = 332
+  end
+  object qdsDataOfUrl: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_URL'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end    
+      item
+        Name = 'VOTI'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CAND_URL'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from ELECTION_DATA'
+      'where ID_URL = :ID_URL'
+      'order by ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID_URL'
+        ParamType = ptInput
+      end>
+    left = 216
+    top = 128
+    object qdsDataOfUrlID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qdsDataOfUrlID_URL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID_URL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qdsDataOfUrlDSCR: TStringField
+      DisplayWidth = 512
+      FieldKind = fkData
+      FieldName = 'DSCR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 512
+    end
+    object qdsDataOfUrlVOTI: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VOTI'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qdsDataOfUrlCAND_URL: TStringField
+      DisplayWidth = 512
+      FieldKind = fkData
+      FieldName = 'CAND_URL'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 512
+    end
+  end
+  object qdsCandOfData: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_URL'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end    
+      item
+        Name = 'VOTI'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CAND_URL'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from ELECTION_CAND'
+      'where ID_DATA = :ID_DATA'
+      'order by ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID_DATA'
+        ParamType = ptInput
+      end>
+    left = 224
+    top = 200
+  end
+  object qdsInsertCand: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'URL'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_TYPE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_DATE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IS_DATA'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_PARENT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'INSERT INTO ELECTION_CAND ('
+      '  DSCR     ,'
+      '  BORN_WHERE,'
+      '  BORN_WHEN ,'
+      '  PREFERENZE,'
+      '  ELETTO    ,'
+      '  ID_DATA'
+      ') values ('
+      '  :DSCR     ,'
+      '  :BORN_WHERE,'
+      '  :BORN_WHEN ,'
+      '  :PREFERENZE,'
+      '  :ELETTO    ,'
+      '  :ID_DATA'
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'DSCR'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BORN_WHERE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BORN_WHEN'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PREFERENZE'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ELETTO'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID_DATA'
+        ParamType = ptInput
+      end>
+    left = 600
+    top = 304
+  end
+  object qdsFindEleCandByID_DATA_DSCR: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DSCR'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'URL'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_TYPE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ELE_DATE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IS_DATA'
+        DataType = ftMemo
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_PARENT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = cnx
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from ELECTION_CAND'
+      'where (ID_DATA=:ID_DATA) and (DSCR=:DSCR)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID_DATA'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DSCR'
+        ParamType = ptInput
+      end>
+    left = 656
+    top = 332
+  end
+end

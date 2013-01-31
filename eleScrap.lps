@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="7">
+      <Unit0>
+        <Filename Value="eleScrap.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="eleScrap"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="85"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="guimain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="guiMain"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="4"/>
+        <UsageCount Value="85"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="E:\lazarus\3p\synapse40\source\lib\httpsend.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="httpsend"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="25"/>
+        <CursorPos X="56" Y="42"/>
+        <UsageCount Value="84"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="etcscraping.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="etcScraping"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="333"/>
+        <CursorPos X="78" Y="353"/>
+        <UsageCount Value="72"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="guisqlite.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormSQLite"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="guiSQLite"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="266"/>
+        <CursorPos X="19" Y="271"/>
+        <UsageCount Value="71"/>
+        <Bookmarks Count="1">
+          <Item0 X="26" Y="169" ID="0"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="E:\lazarus\fpc\2.6.0\source\rtl\inc\objpash.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="165"/>
+        <CursorPos X="23" Y="192"/>
+        <UsageCount Value="7"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="E:\lazarus\components\turbopower_ipro\ipfilebroker.pas"/>
+        <UnitName Value="Ipfilebroker"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="7"/>
+      </Unit6>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="guimain.pas"/>
+        <Caret Line="71" Column="54" TopLine="56"/>
+      </Position1>
+      <Position2>
+        <Filename Value="guisqlite.pas"/>
+        <Caret Line="277" Column="10" TopLine="256"/>
+      </Position2>
+      <Position3>
+        <Filename Value="guisqlite.pas"/>
+        <Caret Line="278" Column="10" TopLine="257"/>
+      </Position3>
+      <Position4>
+        <Filename Value="guisqlite.pas"/>
+        <Caret Line="298" Column="83" TopLine="276"/>
+      </Position4>
+      <Position5>
+        <Filename Value="guisqlite.pas"/>
+        <Caret Line="297" Column="1" TopLine="272"/>
+      </Position5>
+      <Position6>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="84" Column="22" TopLine="76"/>
+      </Position6>
+      <Position7>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="373" Column="50" TopLine="354"/>
+      </Position7>
+      <Position8>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position8>
+      <Position9>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="84" Column="22" TopLine="75"/>
+      </Position9>
+      <Position10>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="210" Column="19" TopLine="192"/>
+      </Position10>
+      <Position11>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="273" Column="24" TopLine="261"/>
+      </Position11>
+      <Position12>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="11" Column="7" TopLine="1"/>
+      </Position12>
+      <Position13>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="84" Column="22" TopLine="60"/>
+      </Position13>
+      <Position14>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="210" Column="19" TopLine="186"/>
+      </Position14>
+      <Position15>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="404" Column="1" TopLine="386"/>
+      </Position15>
+      <Position16>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="347" Column="1" TopLine="333"/>
+      </Position16>
+      <Position17>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="360" Column="23" TopLine="336"/>
+      </Position17>
+      <Position18>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="347" Column="42" TopLine="336"/>
+      </Position18>
+      <Position19>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="345" Column="53" TopLine="336"/>
+      </Position19>
+      <Position20>
+        <Filename Value="guisqlite.pas"/>
+        <Caret Line="293" Column="43" TopLine="281"/>
+      </Position20>
+      <Position21>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="334" Column="51" TopLine="322"/>
+      </Position21>
+      <Position22>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position22>
+      <Position23>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="188" Column="17" TopLine="164"/>
+      </Position23>
+      <Position24>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="418" Column="1" TopLine="389"/>
+      </Position24>
+      <Position25>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position25>
+      <Position26>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="189" Column="83" TopLine="164"/>
+      </Position26>
+      <Position27>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="359" Column="24" TopLine="266"/>
+      </Position27>
+      <Position28>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position28>
+      <Position29>
+        <Filename Value="etcscraping.pas"/>
+        <Caret Line="189" Column="71" TopLine="164"/>
+      </Position29>
+      <Position30>
+        <Filename Value="guimain.pas"/>
+        <Caret Line="79" Column="18" TopLine="78"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
